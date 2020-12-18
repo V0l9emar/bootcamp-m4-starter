@@ -39,3 +39,16 @@
     opacity: 0.5;
     cursor: not-allowed;
 }
+
+@media only screen and (max-width: 450px) {
+    .search-box__form {
+        width: 100%;
+    }
+    .search-box__form {
+        display: flex;
+        flex-direction: column;
+    }
+    .search-box__form-input {
+        width: 100%;
+    }
+}

@@ -17,6 +17,32 @@
     margin-bottom: 24px;
 }
 
+.favorites__list-movie{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid silver;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #ffeedb;
+    margin-bottom: 10px;
+}
+.favorites__list-movieButton{
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    background-color: #ffeedb;
+    color: black;
+    border-color: #ffeedb;
+    font-weight: bold;
+}
+
+.favorites__list-movieButton:hover{
+    cursor: pointer;
+}
+
 .favorites__save {
     border: none;
     background-color: #496DDB;
@@ -26,8 +52,51 @@
     transition: all 0.2s linear;
 }
 
+.favorites__save-none{
+    display: none;
+}
+
+.favorites__link{
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
 .favorites__save:hover {
     cursor: pointer;
     opacity: 0.9;
     transition: all 0.2s linear;
+}
+.cart__note{
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
+.block-link{
+    display: block;
+}
+
+.favorites__buttons{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+@media only screen and (max-width: 800px) {
+    .favorites__buttons{
+        display: flex;
+        align-items: center;
+        /* justify-content: space-between; */
+        flex-direction: column;
+
+    }
+}
+@media only screen and (max-width: 710px) {
+    .favorites{
+        margin-top: 30px;
+    }
+    .favorites__buttons{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+    }
 }

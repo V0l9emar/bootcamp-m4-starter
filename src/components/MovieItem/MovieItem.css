@@ -4,6 +4,10 @@
     display: flex;
 }
 
+.movie-item:first-child{
+    margin-top: 10px;
+}
+
 .movie-item__poster {
     height: 150px;
     margin-right: 21px;
@@ -28,4 +32,19 @@
     cursor: pointer;
     opacity: 0.9;
     transition: all 0.2s linear;
+}
+
+@media only screen and (max-width: 400px) {
+    .movie-item__poster {
+        height: 120px;
+        margin-right: 21px;
+    }
+    .movie-item__title {
+        font-weight: 500;
+        font-size: 18px;
+        margin-bottom: 14px;
+    }
+    .movie-item__add-button {
+        padding: 5px 8px;
+    }
 }

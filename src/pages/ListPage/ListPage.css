@@ -5,8 +5,31 @@
 .list-page__title {
     font-size: 34px;
     margin-bottom: 26px;
+    font-weight: bold;
+}
+
+.list__page-img{
+    height: 80px;
 }
 
 .list-page ul li {
     font-size: 18px;
+    /* margin-bottom: 10px; */
+}
+
+.list-page li:nth-child(2n-1){
+    background-color: #efefef;
+
+}
+.list-page li{
+    display: flex;
+    padding: 10px;
+}
+
+.list__page-info{
+    margin-left: 10px;
+}
+
+a:link{
+    color: black
 }

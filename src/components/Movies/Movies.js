@@ -1,37 +1,57 @@
 import React, { Component } from 'react';
+import { Pagination } from 'antd';
 import MovieItem from '../MovieItem/MovieItem';
+import {connect} from 'react-redux';
 import './Movies.css';
 
 class Movies extends Component {
-    state = { 
-        movies: [
-            {
-                imdbID: 'tt3896198',
-                title: "Guardians of the Galaxy Vol. 2",
-                year: 2017,
-                poster: "https://m.media-amazon.com/images/M/MV5BNjM0NTc0NzItM2FlYS00YzEwLWE0YmUtNTA2ZWIzODc2OTgxXkEyXkFqcGdeQXVyNTgwNzIyNzg@._V1_SX300.jpg"
-
-            },
-            {
-                imdbID: 'tt0068646',
-                title: "The Godfather",
-                year: 1972,
-                poster: "https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg"
-
-            }
-        ]
+    defaultState = {
+        currentPage: 1,
+        perPage: 10,
+        totalCount:''
     }
-    render() { 
-        return ( 
-            <ul className="movies">
-                {this.state.movies.map((movie) => (
-                    <li className="movies__item" key={movie.imdbID}>
-                        <MovieItem {...movie} />
-                    </li>
-                ))}
-            </ul>
+    state = {
+        currentPage: ''
+    }
+    handlePaginationChange = (page) => {
+        console.log(this.props)
+        this.setState({
+            current: page
+        })
+    }
+    onShowSizeChange(current, pageSize) {
+        console.log(current, pageSize);
+    }
+    render() {
+        // console.log(this.props)
+        return (
+            <div>
+                {/* <Pagination current={this.state.current} total={40} onChange={this.handlePaginationChange} /> */}
+                <ul className="movies">
+                    {this.props.movies.map((movie) => (
+                        <li className="movies__item" key={movie.imdbID}>
+                            <MovieItem {...movie} disabled={this.props.cart.find(el => el.imdbID === movie.imdbID)} />
+                        </li>
+                    ))}
+                </ul>
+                <Pagination
+                    // showSizeChanger
+                    onShowSizeChange={this.onShowSizeChange}
+                    defaultCurrent={this.state.current}
+                    total={500}
+                    onChange={this.handlePaginationChange}
+                    disabled
+                    />
+            </div>
         );
     }
 }
- 
-export default Movies;
+
+const mapStateToProps = (state) => {
+    return {
+        movies: state.movies,
+        cart: state.cart
+    }
+}
+
+export default connect(mapStateToProps)(Movies);

@@ -1,10 +1,14 @@
 .main-page__content {
-    padding: 42px calc(50% - 500px);
+    max-width: 989px;
+    /* padding: 42px calc(50% - 500px); */
+    padding-top: 42px;
     display: flex;
     justify-content: space-between;
+    margin: auto;
 }
 
 .main-page__main-section {
+    margin: auto;
     padding-left: 40px;
     box-sizing: border-box;
     width: 60%;
@@ -15,5 +19,28 @@
 }
 
 .main-page__favorites {
-    width: 35%;   
+    width: 35%;
 }
+
+
+@media only screen and (max-width: 710px) {
+    .main-page__content {
+      /* background-color: lightblue; */
+      display: flex;
+      flex-direction: column;
+    }
+    .main-page__main-section {
+        padding-left: 0;
+        box-sizing: border-box;
+        width: 90%;
+    }
+    .main-page__favorites {
+        width: 90%;
+        margin: auto;
+    }
+    .main-page__main-section {
+        /* padding-left: 40px; */
+        box-sizing: border-box;
+        width: 90%;
+    }
+  }
